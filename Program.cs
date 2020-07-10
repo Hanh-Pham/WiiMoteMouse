@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using WiiRemote.WiiMoteLib;
 
 namespace WiiRemote
@@ -17,13 +18,26 @@ namespace WiiRemote
         }
         public static void Start()
         {
-            Wm.Connect();
-            Wm.SetReportType(InputReport.IRAccel, true);
-            Wm.WiimoteChanged += Wm_WiimoteChanged;
+            try
+            {
+                Wm.Connect();
+                Wm.SetReportType(InputReport.IRAccel, true);
+                Wm.SetLEDs(true, true, true, true);
+                Wm.WiimoteChanged += Wm_WiimoteChanged;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                Environment.Exit(0);
+            }
         }
 
         public static void Stop()
         {
+            Wm.SetLEDs(false, false, false, false);
+            Wm.SetRumble(true);
+            Thread.Sleep(500);
+            Wm.SetRumble(false);
             Wm.Disconnect();
         }
         private static void Wm_WiimoteChanged(object sender, WiimoteChangedEventArgs e)
