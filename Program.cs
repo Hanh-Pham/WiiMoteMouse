@@ -31,7 +31,7 @@ namespace WiiRemote
                 Environment.Exit(0);
             }
         }
-        //testing commit
+
         public static void Stop()
         {
             Wm.SetLEDs(false, false, false, false);
