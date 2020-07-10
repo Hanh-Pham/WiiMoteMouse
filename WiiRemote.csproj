@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{20CC0B8A-701E-4B20-A386-626E4B311459}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>WiiRemote</RootNamespace>
     <AssemblyName>WiiRemote</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -52,6 +55,7 @@
     <Compile Include="WiiMoteLib\WiiMote.cs" />
     <Compile Include="WiiMoteLib\WiimoteChangedEventArgs.cs" />
     <Compile Include="WiiMoteLib\WiimoteExtensionChangedEventArgs.cs" />
+    <Compile Include="WiiMoteMouse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

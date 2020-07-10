@@ -39,6 +39,15 @@ namespace WiiRemote
             SetCursorPos(point.X, point.Y);
         }
 
+        public static void ClickLeft()
+        {
+            MouseEvent(MouseOperations.MouseEventFlags.LeftDown | MouseOperations.MouseEventFlags.LeftUp);
+        }
+        public static void ClickRight()
+        {
+            MouseEvent(MouseOperations.MouseEventFlags.RightDown | MouseOperations.MouseEventFlags.RightUp);
+        }
+
         public static MousePoint GetCursorPosition()
         {
             MousePoint currentMousePoint;
